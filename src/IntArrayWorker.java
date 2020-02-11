@@ -86,7 +86,7 @@ public class IntArrayWorker {
 	}
 	public int getCount(int passed) {
 		int count = 0;
-		for(row = 0; row < matrix.length; row ++) {
+		for(int row = 0; row < matrix.length; row ++) {
 			for(int col = 0; col < matrix[0].length; col ++) {
 				if (matrix[row][col] == passed) {
 					count = count + 1;
@@ -97,7 +97,24 @@ public class IntArrayWorker {
 	}
 
 	public int getLargest() {
-		for(int row = 0;)
+		int largest = matrix[0][0];
+		for(int row = 0;row < matrix.length; row ++) {
+			for(int col = 0; col < matrix[0].length; col ++) {
+				if (matrix[row][col] > largest) {
+					largest = matrix[row][col];
+				}
+
+			}
+		}
+		return largest;
+	}
+
+	public int getColTotal(int colNum) {
+		int total= 0;;
+		for (int col = 0; col < matrix[0].length; col ++) {
+			total = total + matrix[colNum][col];
+		}
+		return total;
 	}
 
 }
