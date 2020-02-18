@@ -107,9 +107,31 @@ public class Picture extends SimplePicture {
 		Pixel[][] pixels = this.getPixels2D();
 		for (Pixel[] rowArray : pixels) {
 			for (Pixel pixelObj : rowArray) {
-				pixelObj.setRed(255 - getRed());
-				pixelObj.setGreen(255 - getGreen());
-				pixelObj.setBlue(255 - getBlue());
+				pixelObj.setRed(255 - pixelObj.getRed());
+				pixelObj.setGreen(255 - pixelObj.getGreen());
+				pixelObj.setBlue(255 - pixelObj.getBlue());
+			}
+		}
+	}
+	public void grayscale() {
+		Pixel[][] pixels = this.getPixels2D();
+		int average;
+		for (Pixel[] rowArray : pixels) {
+			for (Pixel pixelObj : rowArray) {
+				average = (pixelObj.getRed() + pixelObj.getRed() + pixelObj.getRed())/3;
+				pixelObj.setGreen(average);
+				pixelObj.setBlue(average);
+				pixelObj.setRed(average);
+			}
+		}
+	}
+
+	public void  fixUnderwater() {
+		Pixel[][] pixels = this.getPixels2D();
+		for (Pixel[] rowArray : pixels) {
+			for (Pixel pixelObj : rowArray) {
+				pixelObj.setRed(pixelObj.getRed() + 90);
+				
 			}
 		}
 	}
