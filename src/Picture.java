@@ -240,16 +240,38 @@ public class Picture extends SimplePicture {
 	}
 
 	public void mirrorArms() {
-		int mirrorPoint = 276;
+		int mirrorPoint = 200;
+		Pixel topPixel = null;
+		Pixel botPixel = null;
+		int count = 0;
+		Pixel[][] pixels = this.getPixels2D();
+
+		// loop through the rows
+		for (int row = 170; row < mirrorPoint; row++) {
+			// loop from 13 to just before the mirror point
+			for (int col = 100; col < 300; col++) {
+
+				count = count + 1;
+
+				topPixel = pixels[row][col];
+				botPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+				botPixel.setColor(topPixel.getColor());
+			}
+		}
+		System.out.println("Count = " + count);
+	}
+
+	public void mirrorGull() {
+		int mirrorPoint = 350;
 		Pixel leftPixel = null;
 		Pixel rightPixel = null;
 		int count = 0;
 		Pixel[][] pixels = this.getPixels2D();
 
 		// loop through the rows
-		for (int row = 27; row < 97; row++) {
+		for (int row = 230; row < 330; row++) {
 			// loop from 13 to just before the mirror point
-			for (int col = 13; col < mirrorPoint; col++) {
+			for (int col = 230; col < mirrorPoint; col++) {
 
 				count = count + 1;
 

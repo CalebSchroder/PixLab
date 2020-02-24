@@ -1,7 +1,2 @@
-1. No, but it is called upon
-2. Yes
-3. No
-4. Yes
-5. Yes
-6. Yes
-7. No
+1. 90 times
+2. 90 times
