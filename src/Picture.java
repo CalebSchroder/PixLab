@@ -377,7 +377,7 @@ public class Picture extends SimplePicture {
 					leftPixel.setColor(Color.WHITE);
 			}
 		}
-		for (int row = 0; row < pixels.length - 1 ; row++) {
+		for (int row = 0; row < pixels.length - 1; row++) {
 			for (int col = 0; col < pixels[0].length; col++) {
 				leftPixel = pixels[row][col];
 				botPixel = pixels[row + 1][col];
@@ -386,6 +386,24 @@ public class Picture extends SimplePicture {
 					leftPixel.setColor(Color.BLACK);
 				else
 					leftPixel.setColor(Color.WHITE);
+			}
+		}
+	}
+	public void edgeDetection2(int edgeDist) {
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		Pixel botPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+		for (int row = 0; row < pixels.length - 1 ; row++) {
+			for (int col = 0; col < pixels[0].length - 1; col++) {
+				leftPixel = pixels[row][col];
+				rightPixel = pixels[row][col + 1];
+				rightPixel = pixels[row + 1][col];
+				if (Math.abs(leftPixel.getAverage() - rightPixel.getAverage()) > edgeDist || Math.abs(leftPixel.getAverage() - botPixel.getAverage()) > edgeDist) {
+					leftPixel.setColor(Color.BLACK);
+				}else{
+					leftPixel.setColor(Color.WHITE);
+				}
 			}
 		}
 	}
